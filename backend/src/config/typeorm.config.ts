@@ -1,10 +1,15 @@
 import { DataSource, type DataSourceOptions } from 'typeorm';
 import * as dotenv from 'dotenv';
+import * as dns from 'node:dns';
 import { Category } from '../categories/category.entity.js';
 import { Author } from '../authors/author.entity.js';
 import { Book } from '../books/book.entity.js';
 import { User } from '../users/user.entity.js';
 import { InitialSchema1700000000000 } from '../database/migrations/1700000000000-InitialSchema.js';
+
+if (dns.setDefaultResultOrder) {
+  dns.setDefaultResultOrder('ipv4first');
+}
 
 dotenv.config();
 
