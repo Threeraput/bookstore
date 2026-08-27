@@ -1,6 +1,9 @@
 เป้าหมาย: สร้างเว็บแอปพลิเคชันสำหรับดูรายชื่อหนังสือ เพิ่ม ค้นหา และลบหนังสือ โดยหนังสือแต่ละเล่มมีความสัมพันธ์กับผู้แต่ง (Author) และหมวดหมู่ (Category) พร้อมระบบยืนยันตัวตน (Authentication) เพื่อทดสอบความเข้าใจการทำางานแบบ MVC, การออกแบบ REST API, หลักการ OOP และการออกแบบฐานข้อมูลเชิงสัมพันธ์ (Relational DB Design)
 Backend สถาปัตยกรรม MVC
 
+แนบ API collection หรือสคริปต์ทดสอบ endpoint ท้งัหมดที่สร้ํางไว้ไวใ้นโปรเจกต์ใช้เครื่องมืออะไรก็ได้ เช่น
+Bruno , Postman, Insomnia, ไฟล์ .http/.rest, หรือสคริปต์ curl เพื่อให้กรรมกํารตรวจสอบ API ได้สะดวก
+
 //Nest js 
 แยกชั้นสถาปัตยกรรมแบบ MVC/Layered ให้ชัดเจน อย่างน้อย 3 ชั้น: Controller, Service, Repository/Model ห้ามรวมทุกอย่างไว้ในไฟล์เดียว
 ถ้าเลือก Node.js: แยกไฟล์ตามหน้าที่ (เช่น controllers/, services/, repositories/ หรือ models/) เขียน Service/Repository เป็น class ที่มี method ชัดเจน ไม่ใช่ route handler function เดี่ยวๆ ที คุยกับ DB ตรงๆ
