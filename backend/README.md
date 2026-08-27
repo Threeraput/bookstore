@@ -1,3 +1,38 @@
+# 📚 Bookstore Backend API (NestJS + TypeORM + PostgreSQL)
+
+Backend REST API สำหรับระบบจัดการคลังหนังสือ พัฒนาด้วย NestJS, TypeORM, PostgreSQL และระบบยืนยันตัวตนด้วย JWT Auth (Bearer Token)
+
+- **Production API URL**: [https://bookstore-backend-8cs7.onrender.com/api](https://bookstore-backend-8cs7.onrender.com/api)
+- **Database**: PostgreSQL 16 Hosted Instance (Supabase Cloud)
+
+---
+
+## 🛠️ API Endpoints Summary
+
+| Method | Endpoint | Description | Auth Required |
+| :--- | :--- | :--- | :---: |
+| `POST` | `/api/login` | เข้าสู่ระบบ Admin (รับ `access_token` JWT) | ❌ |
+| `GET` | `/api/books` | ดึงหนังสือทั้งหมด (รองรับ `?categoryId=` และ `?authorId=`) | ❌ |
+| `GET` | `/api/books/:id` | ดึงข้อมูลหนังสือเล่มเดียวตาม ID | ❌ |
+| `POST` | `/api/books` | สร้างหนังสือใหม่ | ✅ (Bearer JWT) |
+| `DELETE` | `/api/books/:id` | ลบหนังสือตาม ID | ✅ (Bearer JWT) |
+| `GET` | `/api/categories` | ดึงรายชื่อหมวดหมู่ทั้งหมด | ❌ |
+| `GET` | `/api/authors` | ดึงรายชื่อผู้แต่งทั้งหมด | ❌ |
+
+---
+
+## 🗄️ Database & Migrations
+
+```bash
+# รัน Migration สร้าง Schema
+$ pnpm migration:run
+
+# รัน Seed สร้างข้อมูลทดสอบเริ่มต้น (Categories, Authors, Admin User)
+$ pnpm seed
+```
+
+---
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
