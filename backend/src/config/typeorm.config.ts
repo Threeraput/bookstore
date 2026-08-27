@@ -19,6 +19,10 @@ export const typeOrmConfigOptions: DataSourceOptions = {
   migrations: [InitialSchema1700000000000],
   synchronize: false,
   logging: false,
+  ssl:
+    process.env.NODE_ENV === 'production' || process.env.DB_SSL === 'true'
+      ? { rejectUnauthorized: false }
+      : false,
 };
 
 export const AppDataSource = new DataSource(typeOrmConfigOptions);
