@@ -6,5 +6,6 @@ async function bootstrap() {
     instrument: ObserveInstrument,
   });
   await app.listen(process.env.PORT ?? 3001);
+  console.log(`Bookstore🔥 is running on: ${await app.getUrl()}`);
 }
 await bootstrap();
