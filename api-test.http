@@ -8,8 +8,6 @@ Content-Type: application/json
   "password": "admin123"
 }
 
-###
-
 ### 2. Login (Failed - Wrong Password)
 POST http://localhost:3001/api/login
 Content-Type: application/json
@@ -19,22 +17,65 @@ Content-Type: application/json
   "password": "wrongpassword"
 }
 
-###
+### 3. Get All Authors
+GET http://localhost:3001/api/authors
 
-### 3. Login (Failed - Validation Error, Missing Fields)
-POST http://localhost:3001/api/login
+### 4. Get All Categories
+GET http://localhost:3001/api/categories
+
+### 5. Get All Books
+GET http://localhost:3001/api/books
+
+### 6. Get Books Filtered by Category
+GET http://localhost:3001/api/books?categoryId=2
+
+### 7. Get Books Filtered by Author
+GET http://localhost:3001/api/books?authorId=1
+
+### 8. Get Single Book by ID
+GET http://localhost:3001/api/books/1
+
+### 9. Create Book (Failed - Missing Auth Token -> 401)
+POST http://localhost:3001/api/books
 Content-Type: application/json
 
 {
-  "username": "admin"
+  "title": "Refactoring",
+  "isbn": "978-0201485677",
+  "published_year": 1999,
+  "category_id": 2,
+  "author_ids": [3]
 }
 
-###
+### 10. Create Book (Failed - Invalid Category ID -> 400 Bad Request)
+POST http://localhost:3001/api/books
+Authorization: Bearer {{login.response.body.access_token}}
+Content-Type: application/json
 
-### 4. Get All Authors
-GET http://localhost:3001/api/authors
+{
+  "title": "Refactoring",
+  "isbn": "978-0201485677",
+  "published_year": 1999,
+  "category_id": 9999,
+  "author_ids": [1]
+}
 
-###
+### 11. Create Book (Success - Requires Auth -> 201 Created)
+POST http://localhost:3001/api/books
+Authorization: Bearer {{login.response.body.access_token}}
+Content-Type: application/json
 
-### 5. Get All Categories
-GET http://localhost:3001/api/categories
+{
+  "title": "Design Patterns",
+  "isbn": "978-0201633610",
+  "published_year": 1994,
+  "category_id": 2,
+  "author_ids": [1]
+}
+
+### 12. Delete Book (Failed - Missing Auth Token -> 401)
+DELETE http://localhost:3001/api/books/1
+
+### 13. Delete Book (Success - Requires Auth -> 204 No Content)
+DELETE http://localhost:3001/api/books/1
+Authorization: Bearer {{login.response.body.access_token}}
