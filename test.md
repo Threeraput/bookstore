@@ -25,4 +25,13 @@ API Endpoints หลัก (resource-based, ใช้ HTTP verb และ status
 ○ ถ้าเลือก .NET Core: ใช้ System.IdentityModel.Tokens.Jwt (หรือไลบรารีอื่นๆ) สร้าง JWT และ ตั้งค่า JWT Bearer Authentication middleware ของ ASP.NET Core 
 ○ ถ้าเลือก Node.js: ใช้ไลบรารี jsonwebtoken (หรือไลบรารีอืนๆ) สร้าง token ● Middleware/Filter ป้องกัน API: กรณีไม่มี token หรือ token ไม่ถูกต้อง ต้องตอบกลับ 401
 ○ ถ้าเลือก Node.js: เขียน middleware ตรวจสอบ Token จาก Header (Authorization: Bearer ) เอง แล้วนำไปครอบเฉพาะ route ที่ต้องป้องกัน 
-○ นำการป้องกันนี้ไปครอบ Endpoint POST และ DELETE ของ /api/books เพื่อบังคับว่าต้องล็อกอินก่อนจึงจะจัดการหนังสือได้
+
+## เกณฑ์การประเมินและทดสอบตัวเอง (Checklist)
+
+- [x] หน้าเว็บโหลดรายการหนังสือจาก Backend มาแสดงผลได้จริง มีสถานะ Loading ระหว่างรอข้อมูล และแสดง error เมื่อเรียก API ไม่สำเร็จ
+- [x] เพิ่ม/ลบหนังสือผ่านหน้าเว็บได้จริง ข้อมูลบนหน้าจออัปเดตทันทีหลังบันทึกสำเร็จ โดยไม่ต้อง refresh เอง
+- [x] หากยิง API เพิ่ม/ลบหนังสือผ่าน API client (เช่น Postman) โดยไม่มี Token ระบบ Backend ต้องปฏิเสธ (Error 401)
+- [x] เมื่อเข้าเว็บครั้งแรกโดยยังไม่ล็อกอิน ระบบบังคับให้ไปหน้า Login ได้อย่างถูกต้อง (มีระบบ Guest/Public View และบังคับ Auth เมื่อเข้าถึง Admin/Actions)
+- [x] หลังล็อกอินสำเร็จ Token ถูกเก็บไว้ฝั่ง client และสามารถเพิ่ม/ลบหนังสือได้ตามปกติ
+- [x] หากลบ Token ออกจากที่จัดเก็บด้วยตัวเอง ระบบต้องพากลับไปหน้า Login เมื่อพยายามใช้งาน
+
