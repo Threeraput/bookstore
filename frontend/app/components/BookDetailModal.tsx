@@ -65,8 +65,11 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
             {/* Details List */}
             <div className="space-y-3 pt-2 text-sm">
               <div className="flex items-center gap-2 text-slate-600">
-                <span className="font-semibold text-slate-900 min-w-24">
-                  ✍️ ผู้แต่ง:
+                <span className="font-semibold text-slate-900 min-w-28 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <span>ผู้แต่ง:</span>
                 </span>
                 <span>
                   {book.authors && book.authors.length > 0
@@ -76,8 +79,11 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
               </div>
 
               <div className="flex items-center gap-2 text-slate-600">
-                <span className="font-semibold text-slate-900 min-w-24">
-                  🔢 เลข ISBN:
+                <span className="font-semibold text-slate-900 min-w-28 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+                  </svg>
+                  <span>เลข ISBN:</span>
                 </span>
                 <span className="font-mono bg-slate-100 px-2 py-0.5 rounded text-xs">
                   {book.isbn}
@@ -85,8 +91,11 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
               </div>
 
               <div className="flex items-center gap-2 text-slate-600">
-                <span className="font-semibold text-slate-900 min-w-24">
-                  📅 ปีที่พิมพ์:
+                <span className="font-semibold text-slate-900 min-w-28 flex items-center gap-1.5">
+                  <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span>ปีที่พิมพ์:</span>
                 </span>
                 <span>{book.published_year}</span>
               </div>
@@ -96,7 +105,10 @@ export const BookDetailModal: React.FC<BookDetailModalProps> = ({
             <div className="pt-4 border-t border-slate-100">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200/60 text-xs text-slate-500 space-y-1">
                 <div className="font-semibold text-slate-700 flex items-center gap-1.5">
-                  <span>📖</span> Open Library Cover API
+                  <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  <span>Open Library Cover API</span>
                 </div>
                 <p className="text-[11px] leading-relaxed">
                   รูปปกดึงจาก Open Library อัตโนมัติด้วย ISBN หากรูปไม่แสดง ระบบจะเปลี่ยนเป็นปกแบบ Fallback ให้โดยอัตโนมัติ
