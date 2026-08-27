@@ -12,7 +12,7 @@
 
 ## 🌐 Live Production URLs (ระบบใช้งานจริงบน Cloud)
 
-- ⚡ **Frontend Web Application (Vercel)**: `https://bookstore-frontend.vercel.app` *(หรือ Vercel Live URL ของคุณ)*
+- ⚡ **Frontend Web Application (Vercel)**: [https://bookstore-frontend-one-olive.vercel.app](https://bookstore-frontend-one-olive.vercel.app)
 - 🚀 **Backend REST API (Render)**: [https://bookstore-backend-8cs7.onrender.com/api](https://bookstore-backend-8cs7.onrender.com/api)
 - 🗄️ **Database (Supabase Cloud)**: PostgreSQL 16 Hosted Instance
 

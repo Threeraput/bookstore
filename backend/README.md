@@ -2,6 +2,7 @@
 
 Backend REST API สำหรับระบบจัดการคลังหนังสือ พัฒนาด้วย NestJS, TypeORM, PostgreSQL และระบบยืนยันตัวตนด้วย JWT Auth (Bearer Token)
 
+- **Production Frontend**: [https://bookstore-frontend-one-olive.vercel.app](https://bookstore-frontend-one-olive.vercel.app)
 - **Production API URL**: [https://bookstore-backend-8cs7.onrender.com/api](https://bookstore-backend-8cs7.onrender.com/api)
 - **Database**: PostgreSQL 16 Hosted Instance (Supabase Cloud)
 
