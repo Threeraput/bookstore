@@ -28,3 +28,13 @@ Content-Type: application/json
 {
   "username": "admin"
 }
+
+###
+
+### 4. Get All Authors
+GET http://localhost:3001/api/authors
+
+###
+
+### 5. Get All Categories
+GET http://localhost:3001/api/categories
