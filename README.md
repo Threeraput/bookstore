@@ -28,6 +28,25 @@
 - **Admin Management**: เข้าสู่ระบบด้วย JWT Token, เพิ่มหนังสือใหม่, ดูรายละเอียดหนังสือ และลบหนังสือออกคลัง
 - **Fully Responsive**: จัดวาง Layout สวยงามรองรับทั้งมือถือ แท็บเล็ต และเดสก์ท็อป
 
+---
+
+## 📖 วิธีการเพิ่มหนังสือและดึงรูปปกอัตโนมัติ (Automatic ISBN Book Covers)
+
+ระบบนี้เชื่อมต่อกับ **Open Library Covers API** อัตโนมัติ เมื่อล็อกอินเป็น Admin และกดเพิ่มหนังสือใหม่ **เพียงกรอกรหัส ISBN 10 หรือ 13 หลัก ระบบจะทำการดึงรูปปกหนังสือจริงมาแสดงผลทันที** โดยไม่ต้องอัปโหลดไฟล์รูปเอง!
+
+### 📌 ตัวอย่างรหัส ISBN ที่ทดสอบแล้วว่ามีรูปปก (Tested Working ISBN List):
+
+| ชื่อหนังสือ (Book Title) | รหัส ISBN (คัดลอกนำไปกรอกได้ทันที) |
+| :--- | :--- |
+| **Clean Code** | `9780132350884` |
+| **Design Patterns** | `9780201633610` |
+| **Refactoring** | `9780201485677` |
+| **Clean Architecture** | `9780134494166` |
+| **Head First Design Patterns** | `9780596007126` |
+| **JavaScript: The Good Parts** | `9780596517748` |
+
+*(หมายเหตุ: หากกรอก ISBN ที่ไม่มีในคลังของ Open Library ระบบจะสร้าง **Custom Emerald Fallback Cover** แสดงชื่อหนังสือและปกการ์ดมรกตให้โดยอัตโนมัติ)*
+
 ### ⚙️ Backend (NestJS + TypeORM + JWT Auth)
 - **Layered Architecture (3 Layers)**: Controller ➔ Service ➔ Repository/Entity ชัดเจน 100%
 - **Database Relational Schema**: 5 ตารางสัมพันธ์กัน (`books`, `authors`, `categories`, `users`, `book_authors`)
